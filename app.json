@@ -15,7 +15,8 @@
   "permissions": [
     "data:os.device.info",
     "device:os.local_storage",
-    "data:user.hd.sleep"
+    "data:user.hd.sleep",
+    "device:os.bg_service"
   ],
   "runtime": {
     "apiVersion": {
@@ -34,6 +35,9 @@
         },
         "app-side": {
           "path": "app-side/index"
+        },
+        "app-service": {
+          "services": ["app-service/background_service"]
         }
       },
       "platforms": [
