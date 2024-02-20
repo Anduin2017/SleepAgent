@@ -1,12 +1,13 @@
 import * as notificationMgr from "@zos/notification";
 import { Time } from '@zos/sensor'
 import { Sleep } from '@zos/sensor';
+import { BasePage } from "@zeppos/zml/base-page";
 
 const timeSensor = new Time();
 const debugging = true;
 
 // Send a notification
-function sendNotification() {
+function sendNotification(vm) {
 
   const sleep = new Sleep();
   sleep.updateInfo();
@@ -22,12 +23,37 @@ function sendNotification() {
       actions: []
     });
   }
+  vm.httpRequest({
+    method: 'POST',
+    url: 'https://www.aiursoft.cn/api/metrics/',
+    body: reqBody
+  })
+  .then((result) => {
+    const status = result.status;
+    if (debugging) {
+      console.log("Request status: " + status);
+      notificationMgr.notify({
+        title: "Agent Service",
+        content: "Request status: " + status,
+        actions: []
+      });
+    }
+  }).catch((error) => {
+    if (debugging) {
+      console.log("Request error: " + error);
+      notificationMgr.notify({
+        title: "Agent Service",
+        content: "Request error: " + error,
+        actions: []
+  });
 }
 
-AppService({
+AppService(
+  BasePage({
   onInit(_) {
     timeSensor.onPerMinute(() => {
-      sendNotification();
+      const vm = this;
+      sendNotification(vm);
     });
   },
-});
+}));
