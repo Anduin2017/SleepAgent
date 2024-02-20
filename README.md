@@ -1,4 +1,4 @@
-# SleepAgent Server
+# Sleep Agent
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.cn/anduin/SleepAgent/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/pipelines)
@@ -15,6 +15,8 @@ So, it is very necessary to expand your smart wristband. And this repository pro
 It supports the Amazfit GTR 4 wristband, running a background service in the wristband that scans the data of various sensors every 5 minutes and sends it to a custom HTTP server. Similarly, this repository also provides the HTTP data cache server.
 
 Using this solution, you can perfectly retrieve your health data using HTTP API, use it for further expansion and development, or export it to Prometheus.
+
+# Server side
 
 ## Run in Ubuntu
 
