@@ -9,8 +9,6 @@
 
 SleepAgent is a solution which allows your ZEPP watch to send sleep data to your server and store it. It also provides a web interface to view the data.
 
-![overview](./screenshot.png)
-
 ## Run in Ubuntu
 
 The following script will install\update this app on your Ubuntu server. Supports Ubuntu 22.04.
@@ -18,13 +16,13 @@ The following script will install\update this app on your Ubuntu server. Support
 On your Ubuntu server, run the following command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.cn/anduin/SleepAgent/-/raw/master/install.sh | sudo bash
+curl -sL https://gitlab.aiursoft.cn/anduin/sleepagent/-/raw/master/install.sh | sudo bash
 ```
 
 Of course it is suggested that append a custom port number to the command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.cn/anduin/sleepAgent/-/raw/master/install.sh | sudo bash -s 8080
+curl -sL https://gitlab.aiursoft.cn/anduin/sleepagent/-/raw/master/install.sh | sudo bash -s 8080
 ```
 
 It will install the app as a systemd service, and start it automatically. Binary files will be located at `/opt/apps`. Service files will be located at `/etc/systemd/system`.
