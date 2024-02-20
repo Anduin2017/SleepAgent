@@ -7,7 +7,7 @@ import { getDeviceInfo } from '@zos/device'
 
 const timeSensor = new Time();
 const debugging = false;
-const endPoint = "http://lab:12222/api/metric"
+const endPoint = "http://lab:12222/api/metrics/send"
 
 // Send a notification
 function sendNotification(vm) {
@@ -58,7 +58,7 @@ function sendNotification(vm) {
 
   vm.httpRequest({
     method: 'POST',
-    url: endPoint + "?nickName=" + nickName,
+    url: endPoint + "?nick-name=" + nickName,
     body: JSON.stringify(reqBody),
     headers: {
       'Content-Type': 'application/json'

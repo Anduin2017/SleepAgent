@@ -8,7 +8,7 @@ public class HomeController : ControllerBase
     {
         var host = HttpContext.Request.Host;
         var scheme = HttpContext.Request.Scheme;
-        var endpoint = $"{scheme}://{host}/api/metric";
-        return Ok($"This is an API server. Please configure your watch to POST data to {endpoint}");
+        var endpoint = $"{scheme}://{host}/api/metrics";
+        return Ok($"This is an API server. Please read the document at {endpoint}");
     }
 }
