@@ -47,7 +47,7 @@ function sendMetrics(vm) {
     paiWeek: pai.getTotal(),
     sleepInfo: sleep.getInfo(),
     sleepStgList: sleep.getStageConstantObj(),
-    SleepingStatus: sleep.getSleepingStatus(),
+    sleepingStatus: sleep.getSleepingStatus(),
     stands: stand.getCurrent(),
     standsT: stand.getTarget(),
     steps: step.getCurrent(),
