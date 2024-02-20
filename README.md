@@ -10,7 +10,7 @@ Smart wristbands are basic electronic products that many people own nowadays. Th
 
 For example, you can automatically activate the "do not disturb" mode on your phone after falling asleep and turn it off when you wake up. Or you can monitor your heart rate changes to control a treadmill for steady-state running. Or you can monitor blood oxygen saturation and send an alert when abnormalities occur.
 
-So, it is veru necessary to expand your smart wristband. And this repository provides a solution:
+So, it is very necessary to expand your smart wristband. And this repository provides a solution:
 
 It supports the Amazfit GTR 4 wristband, running a background service in the wristband that scans the data of various sensors every 5 minutes and sends it to a custom HTTP server. Similarly, this repository also provides the HTTP data cache server.
 
