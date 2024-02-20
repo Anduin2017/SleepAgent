@@ -4,7 +4,6 @@
 [![Pipeline stat](https://gitlab.aiursoft.cn/anduin/SleepAgent/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.cn/anduin/sleepAgent/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/anduin/SleepAgent/-/pipelines)
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/anduin/SleepAgent.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/commits/master?ref_type=heads)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2FSleepAgent.aiursoft.cn%2F)](https://SleepAgent.aiursoft.cn)
 [![Docker](https://img.shields.io/badge/docker-latest-blue?logo=docker)](https://hub.aiursoft.cn/#!/taglist/anduin/sleepAgent)
 
 SleepAgent is a solution which allows your ZEPP watch to send sleep data to your server and store it. It also provides a web interface to view the data.
