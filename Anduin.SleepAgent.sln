@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C11DBE5C-B87
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anduin.SleepAgent.WebServer", "src\Anduin.SleepAgent.WebServer\Anduin.SleepAgent.WebServer.csproj", "{6E6B7690-D537-4795-BDEB-FA853239897C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{96137404-7C1F-4D02-9782-62B843015DF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anduin.SleepAgent.WebServer.Tests", "tests\Anduin.SleepAgent.WebServer.Tests\Anduin.SleepAgent.WebServer.Tests.csproj", "{3AEA973D-78BF-49C3-9465-A3952A83A8E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6E6B7690-D537-4795-BDEB-FA853239897C} = {C11DBE5C-B87A-4CB6-BC23-67BD48D74AE3}
+		{3AEA973D-78BF-49C3-9465-A3952A83A8E2} = {96137404-7C1F-4D02-9782-62B843015DF6}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6E6B7690-D537-4795-BDEB-FA853239897C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E6B7690-D537-4795-BDEB-FA853239897C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E6B7690-D537-4795-BDEB-FA853239897C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E6B7690-D537-4795-BDEB-FA853239897C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AEA973D-78BF-49C3-9465-A3952A83A8E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEA973D-78BF-49C3-9465-A3952A83A8E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEA973D-78BF-49C3-9465-A3952A83A8E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEA973D-78BF-49C3-9465-A3952A83A8E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

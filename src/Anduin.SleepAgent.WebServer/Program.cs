@@ -1,7 +1,9 @@
-﻿using static Aiursoft.WebTools.Extends;
+﻿using System.Diagnostics.CodeAnalysis;
+using static Aiursoft.WebTools.Extends;
 
 namespace Anduin.SleepAgent.WebServer;
 
+[ExcludeFromCodeCoverage]
 public class Program
 {
     public static async Task Main(string[] args)
