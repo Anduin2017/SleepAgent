@@ -13,11 +13,24 @@
     "description": "A background service to monitor sleep data and HTTP Post to server"
   },
   "permissions": [
-    "data:os.device.info",
     "device:os.local_storage",
+    "data:user.hd.sleep",
+    "data:user.hd.heart_rate",
+    "data:user.hd.spo2",
+    "data:user.hd.calorie",
+    "data:user.hd.distance",
+    "data:user.hd.fat_burning",
+    "data:user.hd.pai",
+    "data:user.hd.stand",
+    "data:user.hd.step",
+    "data:user.hd.stress",
+    "data:user.hd.sleep",
+    "data:user.info",
+
+    "data:os.device.info",
+
     "device:os.bg_service",
-    "device:os.notification",
-    "data:user.hd.sleep"
+    "device:os.notification"
   ],
   "runtime": {
     "apiVersion": {
