@@ -6,7 +6,15 @@
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/anduin/SleepAgent.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/commits/master?ref_type=heads)
 [![Docker](https://img.shields.io/badge/docker-latest-blue?logo=docker)](https://hub.aiursoft.cn/#!/taglist/anduin/sleepagent)
 
-SleepAgent is a solution which allows your ZEPP watch to send sleep data to your server and store it. It also provides a web interface to view the data.
+Smart wristbands are basic electronic products that many people own nowadays. They have a wide variety of sensors that can collect a large amount of interesting data, such as sleep patterns, physical activity, and cardiovascular health. This data often has high analytical and development value.
+
+For example, you can automatically activate the "do not disturb" mode on your phone after falling asleep and turn it off when you wake up. Or you can monitor your heart rate changes to control a treadmill for steady-state running. Or you can monitor blood oxygen saturation and send an alert when abnormalities occur.
+
+So, it is veru necessary to expand your smart wristband. And this repository provides a solution:
+
+It supports the Amazfit GTR 4 wristband, running a background service in the wristband that scans the data of various sensors every 5 minutes and sends it to a custom HTTP server. Similarly, this repository also provides the HTTP data cache server.
+
+Using this solution, you can perfectly retrieve your health data using HTTP API, use it for further expansion and development, or export it to Prometheus.
 
 ## Run in Ubuntu
 
