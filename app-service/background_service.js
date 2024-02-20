@@ -15,10 +15,14 @@ function sendNotification(vm) {
   const score = info.score;
   const isCurrentlySleeping = sleep.getSleepingStatus(); // 0 醒着，1 正在睡眠
 
+  const reqBody = {
+    score: score,
+    isCurrentlySleeping: isCurrentlySleeping
+  };
   vm.httpRequest({
     method: 'POST',
     url: 'https://www.aiursoft.cn/api/metrics/',
-    body: reqBody
+    body: JSON.stringify(reqBody),
   })
   .then((result) => {
     const status = result.status;
@@ -46,8 +50,7 @@ AppService(
   BasePage({
     onInit(_) {
       timeSensor.onPerMinute(() => {
-        const vm = this;
-        sendNotification(vm);
+        sendNotification(this);
       });
     }
 }));
