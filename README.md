@@ -1,4 +1,4 @@
-# SleepAgent
+# SleepAgent Server
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.cn/anduin/SleepAgent/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/pipelines)
@@ -64,6 +64,8 @@ The docker image has the following context:
 | Binary path | /app                             |
 | Data path   | /data                            |
 | Config path | /data/appsettings.json           |
+
+# Sleep Agent full deployment
 
 ## Step 1 - Buy an Amazfit GTR 4
 
