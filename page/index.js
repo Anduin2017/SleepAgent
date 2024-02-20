@@ -57,35 +57,6 @@ Page(
           this.fetchData();
         },
       });
-    },
-    fetchData() {
-      const sleep = new Sleep();
-      sleep.updateInfo();
-      const info = sleep.getInfo();
-      const score = info.score;
-      const isCurrentlySleeping = sleep.getSleepingStatus(); // 0 醒着，1 正在睡眠
-      
-      this
-        .request({
-        method: "GET_DATA",
-        params: {
-          score: score,
-          isCurrentlySleeping: isCurrentlySleeping
-        },
-      })
-        .then((data) => {
-          const { result = {} } = data;
-          const text = result.status;
-
-          if (!textWidget) {
-            textWidget = hmUI.createWidget(hmUI.widget.TEXT, {
-              ...FETCH_RESULT_TEXT,
-              text,
-            });
-          } else {
-            textWidget.setProperty(hmUI.prop.TEXT, text);
-          }
-        })
-    },
+    }
   })
 );
