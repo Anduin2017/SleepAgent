@@ -16,7 +16,7 @@ export const FETCH_BUTTON = {
   radius: px(12),
   normal_color: DEFAULT_COLOR,
   press_color: DEFAULT_COLOR_TRANSPARENT,
-  text: "Fetch Data",
+  text: "启动服务",
 };
 
 export const FETCH_RESULT_TEXT = {

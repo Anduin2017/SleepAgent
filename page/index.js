@@ -1,4 +1,4 @@
-import { Sleep, Vibrator } from '@zos/sensor';
+import { Sleep } from '@zos/sensor';
 import hmUI from "@zos/ui";
 import * as appService from "@zos/app-service";
 import { BasePage } from "@zeppos/zml/base-page";
@@ -7,7 +7,6 @@ import {
   FETCH_BUTTON,
   FETCH_RESULT_TEXT,
 } from "zosLoader:./index.[pf].layout.js";
-
 
 let textWidget;
 const permissions = ["device:os.bg_service"];
@@ -34,19 +33,15 @@ function permissionRequest(vm) {
 
 
 function startTimeService(vm) {
-  console.log(`=== start service: ${serviceFile} ===`);
+  console.log(`=== starting service: ${serviceFile} ===`);
   const result = appService.start({
     url: serviceFile,
     param: `service=${serviceFile}&action=start`,
     complete_func: (info) => {
-      console.log(`startService result: ` + JSON.stringify(info));
-      hmUI.showToast({ text: `start result: ${info.result}` });
+      console.log(`=== startService result: ` + JSON.stringify(info) + " ===");
+      hmUI.showToast({ text: `Service start: ${info.result}` });
     },
   });
-
-  if (result) {
-    console.log("startService result: ", result);
-  }
 }
 
 Page(
@@ -57,15 +52,13 @@ Page(
       hmUI.createWidget(hmUI.widget.BUTTON, {
         ...FETCH_BUTTON,
         click_func: (button_widget) => {
-          console.log("click_func");
+          console.log("=== User clicked the button ===");
           permissionRequest(vm);
           this.fetchData();
         },
       });
     },
     fetchData() {
-      const vibrator = new Vibrator();
-      vibrator.start();
       const sleep = new Sleep();
       sleep.updateInfo();
       const info = sleep.getInfo();
@@ -82,9 +75,7 @@ Page(
       })
         .then((data) => {
           const { result = {} } = data;
-          const statusCode = result.status;
-          //const text = JSON.stringify(result);
-          const text = statusCode;
+          const text = result.status;
 
           if (!textWidget) {
             textWidget = hmUI.createWidget(hmUI.widget.TEXT, {
@@ -95,9 +86,6 @@ Page(
             textWidget.setProperty(hmUI.prop.TEXT, text);
           }
         })
-        .catch((res) => {});
-
-      vibrator.stop();
     },
   })
 );
