@@ -10,7 +10,7 @@ const debugging = false;
 const endPoint = "http://lab:12222/api/metrics/send"
 
 // Send a notification
-function sendNotification(vm) {
+function sendMetrics(vm) {
 
   const nickName = getProfile().nickName;
   const deviceInfo = getDeviceInfo();
@@ -90,7 +90,12 @@ AppService(
   BasePage({
     onInit(_) {
       timeSensor.onPerMinute(() => {
-        sendNotification(this);
+
+        // Run every 5 minutes
+        var shouldRun = timeSensor.getMinutes() % 5 == 0;
+        if (!shouldRun) return;
+
+        sendMetrics(this);
       });
     }
 }));
