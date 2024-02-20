@@ -12,6 +12,7 @@ const endPoint = "http://lab:12222/api/metric"
 // Send a notification
 function sendNotification(vm) {
 
+  const nickName = getProfile().nickName;
   const deviceInfo = getDeviceInfo();
   const heartRate = new HeartRate();
   const battery = new Battery();
@@ -29,36 +30,35 @@ function sendNotification(vm) {
   sleep.updateInfo();
 
   const reqBody = {
-    usrProf: getProfile(),
+    user: getProfile(),
     device: deviceInfo,
-    hr: heartRate.getLast(),
-    hrRes: heartRate.getResting(),
-    hrSum: heartRate.getDailySummary(),
-    bat: battery.getCurrent(),
-    spo2: bloodOxygen.getCurrent(),
-    spo2Hr: bloodOxygen.getLastFewHour(),
-    calC: calorie.getCurrent(),
-    calT: calorie.getTarget(),
-    dist: distance.getCurrent(),
-    fatBC: fatBurning.getCurrent(),
-    fatBT: fatBurning.getTarget(),
+    heartRateLast: heartRate.getLast(),
+    heartRateResting: heartRate.getResting(),
+    heartRateSummary: heartRate.getDailySummary(),
+    battery: battery.getCurrent(),
+    bloodOxygen: bloodOxygen.getCurrent(),
+    bloodOxygenLastFewHour: bloodOxygen.getLastFewHour(),
+    calorie: calorie.getCurrent(),
+    calorieT: calorie.getTarget(),
+    distance: distance.getCurrent(),
+    fatBurning: fatBurning.getCurrent(),
+    fatBurningT: fatBurning.getTarget(),
     paiDay: pai.getToday(),
     paiWeek: pai.getTotal(),
     sleepInfo: sleep.getInfo(),
-    sleepStages: sleep.getStage(),
     sleepStgList: sleep.getStageConstantObj(),
-    sleepCurrent: sleep.getSleepingStatus(),
-    standC: stand.getCurrent(),
-    standT: stand.getTarget(),
-    stepC: step.getCurrent(),
-    stepT: step.getTarget(),
+    SleepingStatus: sleep.getSleepingStatus(),
+    stands: stand.getCurrent(),
+    standsT: stand.getTarget(),
+    steps: step.getCurrent(),
+    stepsT: step.getTarget(),
     stress: stress.getCurrent(),
-    wear: wear.getStatus(),
+    isWearing: wear.getStatus(),
   };
 
   vm.httpRequest({
     method: 'POST',
-    url: endPoint,
+    url: endPoint + "?nickName=" + nickName,
     body: JSON.stringify(reqBody),
     headers: {
       'Content-Type': 'application/json'
