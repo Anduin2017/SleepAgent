@@ -45,15 +45,17 @@ function sendNotification(vm) {
         title: "Agent Service",
         content: "Request error: " + error,
         actions: []
+      });
+    }
   });
 }
 
 AppService(
   BasePage({
-  onInit(_) {
-    timeSensor.onPerMinute(() => {
-      const vm = this;
-      sendNotification(vm);
-    });
-  },
+    onInit(_) {
+      timeSensor.onPerMinute(() => {
+        const vm = this;
+        sendNotification(vm);
+      });
+    }
 }));
