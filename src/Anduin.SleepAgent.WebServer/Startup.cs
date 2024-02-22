@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
+using Aiursoft.DbTools.Sqlite;
 using Aiursoft.WebTools.Abstractions.Models;
-using Anduin.SleepAgent.WebServer.Services;
+using Anduin.SleepAgent.WebServer.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -10,7 +11,8 @@ public class Startup : IWebStartup
 {
     public void ConfigureServices(IConfiguration configuration, IWebHostEnvironment environment, IServiceCollection services)
     {
-        services.AddSingleton<InMemoryDb>();
+        var connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+        services.AddAiurSqliteWithCache<AgentDbContext>(connectionString);
         
         services
             .AddControllersWithViews()
