@@ -1,3 +1,4 @@
+using Anduin.SleepAgent.WebServer.Models.ViewModels;
 using Anduin.SleepAgent.WebServer.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,7 +44,7 @@ public class MetricsController(InMemoryDb db) : ControllerBase
     // /api/metrics/send?nick-name=aaaaa
     [Route("send")]
     [HttpPost]
-    public IActionResult Post([FromQuery(Name = "nick-name")]string nickName, [FromBody] object data)
+    public IActionResult Post([FromQuery(Name = "nick-name")]string nickName, [FromBody]SendViewModel data)
     {
         if (string.IsNullOrWhiteSpace(nickName))
         {
