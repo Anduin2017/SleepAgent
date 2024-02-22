@@ -6,7 +6,7 @@ import { getProfile } from '@zos/user'
 import { getDeviceInfo } from '@zos/device'
 
 const timeSensor = new Time();
-const debugging = true;
+const debugging = false;
 const endPoint = "http://lab:12222/api/metrics/send"
 
 // Send a notification
@@ -31,6 +31,7 @@ function sendMetrics(vm) {
   sleep.updateInfo();
 
   const reqBody = {
+    recordTime: startTime,
     user: getProfile(),
     device: deviceInfo,
     heartRateLast: heartRate.getLast(),
@@ -97,8 +98,8 @@ AppService(
       timeSensor.onPerMinute(() => {
 
         // Run every 5 minutes
-        var shouldRun = timeSensor.getMinutes() % 5 == 0;
-        if (!shouldRun) return;
+        // var shouldRun = timeSensor.getMinutes() % 5 == 0;
+        // if (!shouldRun) return;
 
         sendMetrics(this);
       });
