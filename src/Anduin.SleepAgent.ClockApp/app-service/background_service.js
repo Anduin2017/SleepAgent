@@ -60,7 +60,7 @@ function sendMetrics(vm) {
 
   vm.httpRequest({
     method: 'POST',
-    url: endPoint + "?nick-name=" + nickName,
+    url: endPoint,
     body: JSON.stringify(reqBody),
     headers: {
       'Content-Type': 'application/json'
