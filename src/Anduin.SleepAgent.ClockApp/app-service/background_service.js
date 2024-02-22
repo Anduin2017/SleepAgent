@@ -6,12 +6,13 @@ import { getProfile } from '@zos/user'
 import { getDeviceInfo } from '@zos/device'
 
 const timeSensor = new Time();
-const debugging = false;
+const debugging = true;
 const endPoint = "http://lab:12222/api/metrics/send"
 
 // Send a notification
 function sendMetrics(vm) {
 
+  const startTime = new Date().getTime();
   const nickName = getProfile().nickName;
   const deviceInfo = getDeviceInfo();
   const heartRate = new HeartRate();
@@ -66,20 +67,24 @@ function sendMetrics(vm) {
   })
   .then((result) => {
     const status = result.status;
+    const endTime = new Date().getTime();
+    const duration = endTime - startTime;
+    console.log("Request status: " + status);
     if (debugging) {
-      console.log("Request status: " + status);
       notificationMgr.notify({
         title: "Agent Service",
-        content: "Request status: " + status,
+        content: "Request status: " + status + " in " + duration,
         actions: []
       });
     }
   }).catch((error) => {
+    const endTime = new Date().getTime();
+    const duration = endTime - startTime;
+    console.log("Request error: " + error);
     if (debugging) {
-      console.log("Request error: " + error);
       notificationMgr.notify({
         title: "Agent Service",
-        content: "Request error: " + error,
+        content: "Request error: " + error + " in " + duration,
         actions: []
       });
     }

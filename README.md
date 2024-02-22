@@ -138,6 +138,7 @@ Now, build the app:
 
 ```bash
 cd ./src/Anduin.SleepAgent.ClockApp
+npm install
 zeus preview
 ```
 
