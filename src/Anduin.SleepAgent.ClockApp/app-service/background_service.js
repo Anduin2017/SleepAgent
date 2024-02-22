@@ -31,7 +31,9 @@ function sendMetrics(vm) {
   sleep.updateInfo();
 
   const reqBody = {
-    recordTime: startTime,
+
+    // To Unix timestamp
+    recordTime: Math.floor(new Date().getTime() / 1000),
     user: getProfile(),
     device: deviceInfo,
     heartRateLast: heartRate.getLast(),
