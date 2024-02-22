@@ -18,7 +18,8 @@ public class MetricsController(AgentDbContext db) : ControllerBase
             {
                 { "To get all users list, GET","/api/metrics/all" },
                 { "To query a user's data, GET","/api/metrics/query?nick-name=your-nick-name-here" },
-                { "To patch a user's data, POST","/api/metrics/send?nick-name=your-nick-name-here" }
+                { "For Prometheus format, GET","/api/metrics/metric?nick-name=your-nick-name-here" },
+                { "To patch a user's data, POST","/api/metrics/send" }
             }
         });
     }

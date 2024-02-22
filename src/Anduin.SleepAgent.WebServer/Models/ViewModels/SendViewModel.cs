@@ -34,7 +34,8 @@ public class SendViewModel
     {
         return new MetricData
         {
-            RecordTime = new DateTime(RecordTime),
+            // this.RecordTime is a unix timestamp, so we need to convert it to a DateTime
+            RecordTime = DateTimeOffset.FromUnixTimeSeconds(RecordTime).DateTime,
             Age = User.Age,
             Height = User.Height,
             Weight = User.Weight,
@@ -86,7 +87,7 @@ public class SendViewModel
             Steps = Steps,
             StepsT = StepsT,
             StressValue = Stress.Value,
-            StressTime = Stress.Time,
+            StressTime = DateTimeOffset.FromUnixTimeSeconds(Stress.Time).DateTime,
             IsWearing = IsWearing
         };
     }

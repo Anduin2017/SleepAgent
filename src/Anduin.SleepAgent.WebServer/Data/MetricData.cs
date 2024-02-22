@@ -62,6 +62,6 @@ public class MetricData
     public int Steps { get; set; }
     public int StepsT { get; set; }
     public int StressValue { get; set; }
-    public long StressTime { get; set; }
+    public DateTime StressTime { get; set; }
     public int IsWearing { get; set; }
 }
