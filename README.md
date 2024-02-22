@@ -117,7 +117,7 @@ First, install Node.js and NPM on your computer.
 
 ```bash
 # Assuming you are using Windows
-winget install -e --id Node.js.Node.js
+winget install -e --id Node.js
 ```
 
 Then, install the ZEUS CLI tool:
