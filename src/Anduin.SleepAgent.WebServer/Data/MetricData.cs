@@ -33,7 +33,7 @@ public class MetricData
     public int SkuId { get; set; }
     public int HeartRateLast { get; set; }
     public int HeartRateResting { get; set; }
-    public long HeartRateSummaryMaximumTime { get; set; }
+    public DateTime HeartRateSummaryMaximumTime { get; set; }
     public int HeartRateSummaryMaximumTimeZone { get; set; }
     public int HeartRateSummaryMaximumHrValue { get; set; }
     public int Battery { get; set; }

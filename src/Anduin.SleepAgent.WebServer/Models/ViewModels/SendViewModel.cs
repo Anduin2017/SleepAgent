@@ -58,7 +58,7 @@ public class SendViewModel
             SkuId = Device.SkuId,
             HeartRateLast = HeartRateLast,
             HeartRateResting = HeartRateResting,
-            HeartRateSummaryMaximumTime = HeartRateSummary.Maximum.Time,
+            HeartRateSummaryMaximumTime = DateTimeOffset.FromUnixTimeSeconds(HeartRateSummary.Maximum.Time).DateTime, 
             HeartRateSummaryMaximumTimeZone = HeartRateSummary.Maximum.TimeZone,
             HeartRateSummaryMaximumHrValue = HeartRateSummary.Maximum.HrValue,
             Battery = Battery,
