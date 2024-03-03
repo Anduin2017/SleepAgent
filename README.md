@@ -160,6 +160,8 @@ Open the app on your watch, click the start button, and the app will start to se
 
 ![app-running](./assets/running.png)
 
+And you must disable the `Enable Sleep Mode` feature in the clock: `Sleep` -> `Settings` -> `Sleep Plan` -> `Enable Sleep Mode`. This is because the app will not work when the watch is in sleep mode.
+
 ## Step 7 - View the data
 
 Wait 5-10 minutes, and you can view the metrics data on your server.

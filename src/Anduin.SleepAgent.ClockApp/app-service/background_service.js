@@ -13,7 +13,6 @@ const endPoint = "http://lab:12222/api/metrics/send"
 function sendMetrics(vm) {
 
   const startTime = new Date().getTime();
-  const nickName = getProfile().nickName;
   const deviceInfo = getDeviceInfo();
   const heartRate = new HeartRate();
   const battery = new Battery();
@@ -100,8 +99,8 @@ AppService(
       timeSensor.onPerMinute(() => {
 
         // Run every 5 minutes
-        // var shouldRun = timeSensor.getMinutes() % 5 == 0;
-        // if (!shouldRun) return;
+        var shouldRun = timeSensor.getMinutes() % 5 == 0;
+        if (!shouldRun) return;
 
         sendMetrics(this);
       });
