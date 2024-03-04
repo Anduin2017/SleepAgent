@@ -7,7 +7,7 @@ import { getDeviceInfo } from '@zos/device'
 
 const timeSensor = new Time();
 const debugging = false;
-const endPoint = "http://lab:12222/api/metrics/send"
+const endPoint = "https://health.aiursoft.cn/api/metrics/send"
 
 // Send a notification
 function sendMetrics(vm) {

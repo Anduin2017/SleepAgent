@@ -95,7 +95,7 @@ Go to `Settings` -> `About`, then tap the logo 10 times.
 
 Now you can see the developer mode.
 
-## Step 3 - Deploy the server
+## Step 3 - Deploy the server (Optional if you want to use our server)
 
 Of course, you need to deploy the server to store the sleep data.
 
@@ -109,7 +109,7 @@ And get the server's endpoint. For example, `http://your-server.com`.
 
 This will be the endpoint that the app will send the sleep data to.
 
-## Step 4 - Build the app
+## Step 4 - Change the endpoint in the app
 
 You need to edit, build the app and install it on your phone.
 
@@ -132,7 +132,15 @@ Now change the endpoint to your own server's endpoint in the `./src/Anduin.Sleep
 const endPoint = "http://your-server.com/api/metrics/send"
 ```
 
+If you want to use our server, you can skip this step, or keep the value:
+
+```typescript
+const endPoint = "https://health.aiursoft.cn/api/metrics/send"
+```
+
 The app will send the sleep data to this endpoint.
+
+## Step 5 - Build the app
 
 Now, build the app:
 
@@ -146,7 +154,7 @@ Now you will see a QR code.
 
 ![shown-qr](./assets/qr.png)
 
-## Step 5 - Install the app
+## Step 6 - Install the app to your watch
 
 Open the ZEPP app on your phone, and scan the QR code.
 
@@ -154,7 +162,7 @@ Open the ZEPP app on your phone, and scan the QR code.
 
 Now you can see the app on your watch's app list.
 
-## Step 6 - Configure the app
+## Step 7 - Configure the app to send the data
 
 Open the app on your watch, click the start button, and the app will start to send the sleep data to your server.
 
@@ -162,22 +170,26 @@ Open the app on your watch, click the start button, and the app will start to se
 
 And you must disable the `Enable Sleep Mode` feature in the clock: `Sleep` -> `Settings` -> `Sleep Plan` -> `Enable Sleep Mode`. This is because the app will not work when the watch is in sleep mode.
 
-## Step 7 - View the data
+And **NEVER** enter sleep mode for your watch!!! Because the app will stop working when the watch is in sleep mode.
+
+## Step 8 - View the data on the server
 
 Wait 5-10 minutes, and you can view the metrics data on your server.
 
 Open your browser and navigate to `http://your-server.com/api/metrics/all`.
 
+If you are using our server, you can navigate to `https://health.aiursoft.cn/api/metrics/all`.
+
 You will see the users list which has sent the sleep data to your server.
 
 ```json
 [
-"SomeUser",
-"SomeOtherUser"
+    "SomeUser",
+    "SomeOtherUser"
 ]
 ```
 
-To view one user's data, navigate to `http://your-server.com/api/metrics/query?nick-name=SomeUser`.
+To view one user's data, navigate to `/api/metrics/query?nick-name=SomeUser`.
 
 You may see:
 
