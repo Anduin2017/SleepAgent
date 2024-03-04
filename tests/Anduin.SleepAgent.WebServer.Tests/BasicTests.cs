@@ -4,6 +4,8 @@ using Aiursoft.CSTools.Tools;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Aiursoft.WebTools.Extends;
+using Aiursoft.DbTools;
+using Anduin.SleepAgent.WebServer.Data;
 
 namespace Anduin.SleepAgent.WebServer.Tests;
 
@@ -26,6 +28,7 @@ public class BasicTests
     public async Task CreateServer()
     {
         _server = App<Startup>(Array.Empty<string>(), port: _port);
+        await _server.UpdateDbAsync<AgentDbContext>(UpdateMode.RecreateThenUse);
         await _server.StartAsync();
     }
 
@@ -56,7 +59,12 @@ public class BasicTests
     public async Task TestAll()
     {
         // Post a json object to /api/metrics/send?nick-name=aaaaa
-        var postResponse = await _http.PostAsync(_endpointUrl + "/api/metrics/send?nick-name=aaaaa", new StringContent("{}", Encoding.UTF8, "application/json"));
+        var postResponse = await _http.PostAsync(_endpointUrl + "/api/metrics/send?nick-name=aaaaa", new StringContent(@"
+{
+ ""user"": {
+   ""nickName"": ""aaaaa""
+}
+}", Encoding.UTF8, "application/json"));
         Assert.AreEqual(HttpStatusCode.OK, postResponse.StatusCode);
         
         var response = await _http.GetAsync(_endpointUrl + "/api/metrics/all");
@@ -69,13 +77,18 @@ public class BasicTests
     public async Task TestQuery()
     {
         // Post a json object to /api/metrics/send?nick-name=aaaaa
-        var postResponse = await _http.PostAsync(_endpointUrl + "/api/metrics/send?nick-name=aaaaa", new StringContent("{}", Encoding.UTF8, "application/json"));
+        var postResponse = await _http.PostAsync(_endpointUrl + "/api/metrics/send", new StringContent(@"
+{
+ ""user"": {
+   ""nickName"": ""aaaaa""
+}
+}", Encoding.UTF8, "application/json"));
         Assert.AreEqual(HttpStatusCode.OK, postResponse.StatusCode);
 
         var response = await _http.GetAsync(_endpointUrl + "/api/metrics/query?nick-name=aaaaa");
         response.EnsureSuccessStatusCode(); // Status Code 200-299
         var responseMessage = await response.Content.ReadAsStringAsync();
-        Assert.AreEqual("{}", responseMessage);
+        Assert.IsTrue(responseMessage.Contains("aaaaa"));
     }
 
 }
