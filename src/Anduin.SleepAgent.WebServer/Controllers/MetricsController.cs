@@ -1,5 +1,6 @@
 using Anduin.SleepAgent.WebServer.Data;
 using Anduin.SleepAgent.WebServer.Models.ViewModels;
+using Anduin.SleepAgent.WebServer.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -82,18 +83,7 @@ public class MetricsController(AgentDbContext db) : ControllerBase
             return NotFound();
         }
 
-        var resultDictionary = new Dictionary<string, string>();
-        foreach (var property in data.GetType().GetProperties())
-        {
-            resultDictionary.Add(property.Name, property.GetValue(data)?.ToString() ?? "null");
-        }
-        
-        // Return Prometheus format
-        // Sample:
-        // ProertyName1 1
-        // ProertyName2 2
-        
-        var result = string.Join("\n", resultDictionary.Select(kv => $"{kv.Key} {kv.Value}"));
+        var result = PrometheusFormat.ToPrometheusMetrics(data);
         return Ok(result);
     }
 
