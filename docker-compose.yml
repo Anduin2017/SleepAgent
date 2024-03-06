@@ -22,6 +22,8 @@ services:
       - web # Prometheus needs to be monitoring the web service
     restart: unless-stopped
     image: hub.aiursoft.cn/prom/prometheus
+    volumes:
+      - prometheus-data:/etc/prometheus
     environment:
       - TZ=UTC
     networks:
@@ -34,6 +36,8 @@ services:
       - prometheus # Grafana needs to be using Prometheus as a data source
     restart: unless-stopped
     image: hub.aiursoft.cn/grafana/grafana
+    volumes:
+      - grafana-data:/var/lib/grafana
     networks:
       - internal
     ports:
