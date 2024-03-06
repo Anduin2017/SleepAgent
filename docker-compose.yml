@@ -43,6 +43,6 @@ services:
     ports:
       - "3000:3000"
 
-volume:
+volumes:
   prometheus-data:
   grafana-data:
