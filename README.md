@@ -311,6 +311,69 @@ sudo docker restart prometheus
 
 Now open the Prometheus server at `http://localhost:9090`, and you can see the metrics data.
 
+## Step 10 - Visualize the data with Grafana
+
+You can visualize the data with Grafana.
+
+First, you need to create a new Grafana server. You can start it with Docker-compose.
+
+Create a new file `docker-compose.yml`:
+
+```yaml
+version: '3'
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.233.0.0/16
+
+services:
+  prometheus:
+    restart: unless-stopped
+    image: prom/prometheus
+    environment:
+      - TZ=UTC
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9090"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    ports:
+      - "9090:9090"
+
+  grafana:
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    image: grafana/grafana
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    ports:
+      - "3000:3000"
+```
+
+After you creating the `docker-compose.yml` file, run the following command:
+
+```bash
+sudo docker-compose up -d
+```
+
+Then, open the Grafana server at `http://localhost:3000`, login with account: `admin`, password: `admin`.
+
+Click the button `Add data source`, and add the Prometheus server as the data source.
+
+Then, click the button `Create` -> `Dashboard`, and you can create a new dashboard to visualize the data.
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.
