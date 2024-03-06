@@ -273,6 +273,44 @@ You may see:
 
 Now you can save the JSON or teleport it to other monitoring systems like Prometheus or Grafana.
 
+## Step 9 - Scrap the data with Prometheus
+
+You can scrap the data with Prometheus.
+
+First, you need to create a new Prometheus server. You can start it with Docker:
+
+```bash
+sudo docker run -d --name prometheus -p 9090:9090 -v /var/www/prometheus:/etc/prometheus prom/prometheus
+```
+
+Then, edit the `prometheus.yml` file:
+
+```yaml
+global:
+  scrape_interval: 300s
+
+scrape_configs:
+  - job_name: health
+    scheme: https
+    static_configs:
+      - targets: [health.aiursoft.cn]
+    metrics_path: /api/metrics/metric
+    params:
+      nick-name: ['AnduinXiaomi']
+    scrape_interval: 300s
+    honor_labels: true
+```
+
+Here I'm using the `health.aiursoft.cn` server, and I want to scrap the data of the user `AnduinXiaomi` as an example. You need to replace the server and user name with your own.
+
+Then, restart the Prometheus server:
+
+```bash
+sudo docker restart prometheus
+```
+
+Now open the Prometheus server at `http://localhost:9090`, and you can see the metrics data.
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.
