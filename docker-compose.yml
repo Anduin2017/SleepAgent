@@ -14,11 +14,6 @@ services:
     build: .
     networks:
       - internal
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
     ports:
       - "5000:5000"
 
@@ -31,11 +26,6 @@ services:
       - TZ=UTC
     networks:
       - internal
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9090"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
     ports:
       - "9090:9090"
 
@@ -46,10 +36,5 @@ services:
     image: hub.aiursoft.cn/grafana/grafana
     networks:
       - internal
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
     ports:
       - "3000:3000"
