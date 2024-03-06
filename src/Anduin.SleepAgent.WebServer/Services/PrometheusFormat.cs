@@ -20,12 +20,6 @@ public static class PrometheusFormat
                     resultDictionary.Add(property.Name, "null");
                 }
             }
-            else if (property.PropertyType == typeof(string))
-            {
-                // Convert strings to a quoted string to avoid problems with strings that may look like numbers
-                var value = property.GetValue(data)?.ToString() ?? "null";
-                resultDictionary.Add(property.Name, $"\"{value}\"");
-            }
             else if (property.PropertyType == typeof(int) || property.PropertyType == typeof(float) || property.PropertyType == typeof(double) ||
                      property.PropertyType == typeof(decimal)
                      // add all other numeric types you're planning to use
@@ -35,12 +29,11 @@ public static class PrometheusFormat
                 var value = property.GetValue(data)?.ToString() ?? "null";
                 resultDictionary.Add(property.Name, value);
             }
-            else
-            {
-                // all other types will be stored as strings
-                var value = property.GetValue(data)?.ToString() ?? "null";
-                resultDictionary.Add(property.Name, value);
-            }
+            // else
+            // {
+            //     // non-string and non-numeric types will be stored as null
+            //     resultDictionary.Add(property.Name, "null");
+            // }
         }
         var result = string.Join("\n", resultDictionary.Select(kv => $"{kv.Key} {kv.Value}"));
         return result;
