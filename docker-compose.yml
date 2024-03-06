@@ -26,7 +26,7 @@ services:
     depends_on:
       - web # Prometheus needs to be monitoring the web service
     restart: unless-stopped
-    image: prom/prometheus
+    image: hub.aiursoft.cn/prom/prometheus
     environment:
       - TZ=UTC
     networks:
@@ -43,7 +43,7 @@ services:
     depends_on:
       - prometheus # Grafana needs to be using Prometheus as a data source
     restart: unless-stopped
-    image: grafana/grafana
+    image: hub.aiursoft.cn/grafana/grafana
     networks:
       - internal
     healthcheck:
