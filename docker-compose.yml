@@ -12,6 +12,8 @@ services:
   web:
     restart: unless-stopped
     build: .
+    volumes:
+      - web-data:/data
     networks:
       - internal
     ports:
@@ -46,3 +48,4 @@ services:
 volumes:
   prometheus-data:
   grafana-data:
+  web-data:
