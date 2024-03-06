@@ -9,7 +9,22 @@ networks:
         - subnet: 10.233.0.0/16
 
 services:
+  web:
+    restart: unless-stopped
+    build: .
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    ports:
+      - "5000:5000"
+
   prometheus:
+    depends_on:
+      - web # Prometheus needs to be monitoring the web service
     restart: unless-stopped
     image: prom/prometheus
     environment:
@@ -26,7 +41,7 @@ services:
 
   grafana:
     depends_on:
-      - prometheus
+      - prometheus # Grafana needs to be using Prometheus as a data source
     restart: unless-stopped
     image: grafana/grafana
     networks:
