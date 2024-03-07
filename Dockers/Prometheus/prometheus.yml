@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 300s
+
+scrape_configs:
+  - job_name: health
+    scheme: http
+    static_configs:
+      - targets: [web:5000]
+    metrics_path: /api/metrics/metric
+    params:
+      nick-name: ['AnduinXiaomi']
+    scrape_interval: 300s
+    honor_labels: true
