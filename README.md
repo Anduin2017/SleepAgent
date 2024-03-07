@@ -10,6 +10,8 @@ Smart wristbands are basic electronic products that many people own nowadays. Th
 
 For example, you can automatically activate the "do not disturb" mode on your phone after falling asleep and turn it off when you wake up. Or you can monitor your heart rate changes to control a treadmill for steady-state running. Or you can monitor blood oxygen saturation and send an alert when abnormalities occur.
 
+![grafana](./assets/grafana.png)
+
 So, it is very necessary to expand your smart wristband. And this repository provides a solution:
 
 It supports the Amazfit GTR 4 wristband, running a background service in the wristband that scans the data of various sensors every 5 minutes and sends it to a custom HTTP server. Similarly, this repository also provides the HTTP data cache server.
@@ -296,7 +298,7 @@ scrape_configs:
       - targets: [health.aiursoft.cn]
     metrics_path: /api/metrics/metric
     params:
-      nick-name: ['AnduinXiaomi']
+      nick-name: ['AnduinXiaomi'] # Replace with your own user name
     scrape_interval: 300s
     honor_labels: true
 ```
@@ -317,62 +319,25 @@ You can visualize the data with Grafana.
 
 First, you need to create a new Grafana server. You can start it with Docker-compose.
 
-Create a new file `docker-compose.yml`:
-
-```yaml
-version: '3'
-
-networks:
-  internal:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.233.0.0/16
-
-services:
-  prometheus:
-    restart: unless-stopped
-    image: prom/prometheus
-    environment:
-      - TZ=UTC
-    networks:
-      - internal
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9090"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-    ports:
-      - "9090:9090"
-
-  grafana:
-    depends_on:
-      - prometheus
-    restart: unless-stopped
-    image: grafana/grafana
-    networks:
-      - internal
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-    ports:
-      - "3000:3000"
-```
-
-After you creating the `docker-compose.yml` file, run the following command:
-
 ```bash
 sudo docker-compose up -d
 ```
 
+This command will start 3 docker containers:
+
+* SleepAgent: The server that stores the sleep data. `http://localhost:5000`
+* Prometheus: The server that scraps the sleep data. `http://localhost:9090`
+* Grafana: The server that visualizes the sleep data. `http://localhost:3000`
+
+![docker-compose](./assets/docker-compose.png)
+
+Edit your clock app's settings, and change the endpoint to `http://YOUR_BOX:5000/api/metrics/send`.
+
 Then, open the Grafana server at `http://localhost:3000`, login with account: `admin`, password: `admin`.
 
-Click the button `Add data source`, and add the Prometheus server as the data source.
+You will see the dashboard.
 
-Then, click the button `Create` -> `Dashboard`, and you can create a new dashboard to visualize the data.
+![grafana](./assets/grafana.png)
 
 ## How to contribute
 
