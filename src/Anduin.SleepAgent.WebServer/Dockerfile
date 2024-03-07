@@ -1,4 +1,4 @@
-ARG CSPROJ_PATH="./src/Anduin.SleepAgent.WebServer/"
+ARG CSPROJ_PATH="./"
 ARG PROJ_NAME="Anduin.SleepAgent.WebServer"
 
 # ============================

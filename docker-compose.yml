@@ -11,7 +11,7 @@ networks:
 services:
   web:
     restart: unless-stopped
-    build: .
+    build: ./src/Anduin.SleepAgent.WebServer
     volumes:
       - web-data:/data
     networks:
