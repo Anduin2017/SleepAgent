@@ -80,13 +80,14 @@ function sendMetrics(vm) {
       });
     }
   }).catch((error) => {
+    const status = JSON.stringify(error);
     const endTime = new Date().getTime();
     const duration = endTime - startTime;
-    console.log("Request error: " + error);
+    console.log("Request error: " + status);
     if (debugging) {
       notificationMgr.notify({
         title: "Agent Service",
-        content: "Request error: " + error + " in " + duration,
+        content: "Request error: " + status + " in " + duration,
         actions: []
       });
     }
@@ -100,7 +101,9 @@ AppService(
 
         // Run every 5 minutes
         var shouldRun = timeSensor.getMinutes() % 5 == 0;
-        if (!shouldRun) return;
+        if (!shouldRun && !debugging) {
+          return;
+        }
 
         sendMetrics(this);
       });
