@@ -68,7 +68,7 @@ function sendMetrics(vm) {
     }
   })
   .then((result) => {
-    const status = result.status;
+    const status = JSON.stringify(result);
     const endTime = new Date().getTime();
     const duration = endTime - startTime;
     console.log("Request status: " + status);
