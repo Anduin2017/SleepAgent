@@ -9,11 +9,11 @@ networks:
         - subnet: 10.233.0.0/16
 
 services:
-  web:
+  sleepagent:
     restart: unless-stopped
     build: ./src/Anduin.SleepAgent.WebServer
     volumes:
-      - web-data:/data
+      - sleepagent-data:/data
     networks:
       - internal
     ports:
@@ -21,7 +21,7 @@ services:
 
   prometheus:
     depends_on:
-      - web # Prometheus needs to be monitoring the web service
+      - sleepagent # Prometheus needs to be monitoring the web service
     restart: unless-stopped
     build: ./images/prometheus
     volumes:
@@ -52,4 +52,4 @@ volumes:
   prometheus-data:
   grafana-config:
   grafana-data:
-  web-data:
+  sleepagent-data:

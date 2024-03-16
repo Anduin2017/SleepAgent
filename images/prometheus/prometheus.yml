@@ -5,7 +5,7 @@ scrape_configs:
   - job_name: health
     scheme: http
     static_configs:
-      - targets: [web:5000]
+      - targets: [sleepagent:5000]
     metrics_path: /api/metrics/metric
     params:
       nick-name: ['AnduinXiaomi']
