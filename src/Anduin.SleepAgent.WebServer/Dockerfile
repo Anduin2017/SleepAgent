@@ -13,7 +13,7 @@ RUN npm install --prefix "${CSPROJ_PATH}wwwroot" --loglevel verbose
 
 # ============================
 # Prepare Building Environment
-FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/sdk:9.0 AS build-env
+FROM hub.aiursoft.cn/aiursoft/internalimages/dotnet AS build-env
 ARG CSPROJ_PATH
 ARG PROJ_NAME
 WORKDIR /src
