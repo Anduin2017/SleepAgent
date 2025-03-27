@@ -11,7 +11,7 @@ public class Program
     public static async Task Main(string[] args)
     {
         var app = await AppAsync<Startup>(args);
-        await app.UpdateDbAsync<AgentDbContext>(UpdateMode.MigrateThenUse);
+        await app.UpdateDbAsync<AgentDbContext>();
         await app.RunAsync();
     }
 }

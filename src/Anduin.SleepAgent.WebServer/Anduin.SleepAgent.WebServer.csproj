@@ -11,9 +11,9 @@
     <Description>Sleep Agent is a web server that can transfer ZEPP watch data.</Description>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Aiursoft.WebTools" Version="8.0.27" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.10" />
-    <PackageReference Include="Aiursoft.DbTools.Sqlite" Version="8.0.23" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10" />
+    <PackageReference Include="Aiursoft.WebTools" Version="9.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.3" />
+    <PackageReference Include="Aiursoft.DbTools.Sqlite" Version="9.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3" />
   </ItemGroup>
 </Project>
