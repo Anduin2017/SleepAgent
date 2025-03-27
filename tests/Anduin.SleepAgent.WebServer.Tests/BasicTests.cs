@@ -28,7 +28,7 @@ public class BasicTests
     public async Task CreateServer()
     {
         _server = await AppAsync<Startup>(Array.Empty<string>(), port: _port);
-        await _server.UpdateDbAsync<AgentDbContext>(UpdateMode.RecreateThenUse);
+        await _server.UpdateDbAsync<AgentDbContext>();
         await _server.StartAsync();
     }
 
@@ -66,13 +66,13 @@ public class BasicTests
 }
 }", Encoding.UTF8, "application/json"));
         Assert.AreEqual(HttpStatusCode.OK, postResponse.StatusCode);
-        
+
         var response = await _http.GetAsync(_endpointUrl + "/api/metrics/all");
         response.EnsureSuccessStatusCode(); // Status Code 200-299
         var responseMessage = await response.Content.ReadAsStringAsync();
         Assert.AreEqual("[\"aaaaa\"]", responseMessage);
     }
-    
+
     [TestMethod]
     public async Task TestQuery()
     {
