@@ -42,7 +42,7 @@ It will install the app as a systemd service, and start it automatically. Binary
 
 Requirements about how to run
 
-1. Install [.NET 7 SDK](http://dot.net/) and [Node.js](https://nodejs.org/).
+1. Install [.NET 9 SDK](http://dot.net/) and [Node.js](https://nodejs.org/).
 2. Execute `npm install` at `wwwroot` folder to install the dependencies.
 3. Execute `dotnet run` to run the app.
 4. Use your browser to view [http://localhost:5000](http://localhost:5000).
@@ -59,7 +59,7 @@ First, install Docker [here](https://docs.docker.com/get-docker/).
 Then run the following commands in a Linux shell:
 
 ```bash
-image=hub.aiursoft.cn/anduin/sleepagent
+image=anduin2019/sleepagent
 appName=sleepagent
 sudo docker pull $image
 sudo docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data $image
@@ -71,7 +71,7 @@ The docker image has the following context:
 
 | Properties  | Value                            |
 |-------------|----------------------------------|
-| Image       | hub.aiursoft.cn/anduin/sleepagent|
+| Image       | anduin2019/sleepagent            |
 | Ports       | 5000                             |
 | Binary path | /app                             |
 | Data path   | /data                            |
