@@ -1,5 +1,5 @@
 ARG CSPROJ_PATH="./src/Anduin.SleepAgent.WebServer/"
-ARG PROJ_NAME="Anduin.SleepAgent.WebServer.csproj"
+ARG PROJ_NAME="Anduin.SleepAgent.WebServer"
 
 # ============================
 # Prepare NPM Environment
