@@ -23,7 +23,7 @@ Using this solution, you can perfectly retrieve your health data using HTTP API,
 
 ## Run in Ubuntu
 
-The following script will install\update this app on your Ubuntu server. Supports Ubuntu 22.04.
+The following script will install\update this app on your Ubuntu server. Supports Ubuntu 25.04.
 
 On your Ubuntu server, run the following command:
 
@@ -102,7 +102,7 @@ Now you can see the developer mode.
 
 Of course, you need to deploy the server to store the sleep data.
 
-Buy or deploy a Ubuntu 22.04 server. Deploy with any approaches above.
+Buy or deploy a Ubuntu 25.04 server. Deploy with any approaches above.
 
 * Deploy with a single script
 * Deploy manually
