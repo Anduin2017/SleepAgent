@@ -4,7 +4,7 @@
 [![Pipeline stat](https://gitlab.aiursoft.com/anduin/SleepAgent/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/anduin/sleepAgent/badges/master/coverage.svg)](https://gitlab.aiursoft.com/anduin/SleepAgent/-/pipelines)
 [![ManHours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/anduin/SleepAgent.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/commits/master?ref_type=heads)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fhealth.aiursoft.cn%2F)](https://health.aiursoft.cn)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fhealth.aiursoft.com%2F)](https://health.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/anduin2019/sleepagent.svg)](https://hub.docker.com/r/anduin2019/sleepagent)
 
 Smart wristbands are basic electronic products that many people own nowadays. They have a wide variety of sensors that can collect a large amount of interesting data, such as sleep patterns, physical activity, and cardiovascular health. This data often has high analytical and development value.
@@ -138,7 +138,7 @@ const endPoint = "http://your-server.com/api/metrics/send"
 If you want to use our server, you can skip this step, or keep the value:
 
 ```typescript
-const endPoint = "https://health.aiursoft.cn/api/metrics/send"
+const endPoint = "https://health.aiursoft.com/api/metrics/send"
 ```
 
 The app will send the sleep data to this endpoint.
@@ -181,7 +181,7 @@ Wait 5-10 minutes, and you can view the metrics data on your server.
 
 Open your browser and navigate to `http://your-server.com/api/metrics/all`.
 
-If you are using our server, you can navigate to `https://health.aiursoft.cn/api/metrics/all`.
+If you are using our server, you can navigate to `https://health.aiursoft.com/api/metrics/all`.
 
 You will see the users list which has sent the sleep data to your server.
 
@@ -296,7 +296,7 @@ scrape_configs:
   - job_name: health
     scheme: https
     static_configs:
-      - targets: [health.aiursoft.cn]
+      - targets: [health.aiursoft.com]
     metrics_path: /api/metrics/metric
     params:
       nick-name: ['AnduinXiaomi'] # Replace with your own user name
@@ -304,7 +304,7 @@ scrape_configs:
     honor_labels: true
 ```
 
-Here I'm using the `health.aiursoft.cn` server, and I want to scrap the data of the user `AnduinXiaomi` as an example. You need to replace the server and user name with your own.
+Here I'm using the `health.aiursoft.com` server, and I want to scrap the data of the user `AnduinXiaomi` as an example. You need to replace the server and user name with your own.
 
 Then, restart the Prometheus server:
 
