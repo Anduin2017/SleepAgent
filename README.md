@@ -3,7 +3,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/anduin/SleepAgent/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/anduin/sleepAgent/badges/master/coverage.svg)](https://gitlab.aiursoft.com/anduin/SleepAgent/-/pipelines)
-[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/anduin/SleepAgent.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/commits/master?ref_type=heads)
+[![ManHours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/anduin/SleepAgent.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/commits/master?ref_type=heads)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fhealth.aiursoft.cn%2F)](https://health.aiursoft.cn)
 [![Docker](https://img.shields.io/docker/pulls/anduin2019/sleepagent.svg)](https://hub.docker.com/r/anduin2019/sleepagent)
 
