@@ -1,7 +1,7 @@
-aiur() { arg="$( cut -d ' ' -f 2- <<< "$@" )" && curl -sL https://gitlab.aiursoft.cn/aiursoft/aiurscript/-/raw/master/$1.sh | sudo bash -s $arg; }
+aiur() { arg="$( cut -d ' ' -f 2- <<< "$@" )" && curl -sL https://gitlab.aiursoft.com/aiursoft/aiurscript/-/raw/master/$1.sh | sudo bash -s $arg; }
 
 app_name="sleepagent"
-repo_path="https://gitlab.aiursoft.cn/anduin/sleepagent"
+repo_path="https://gitlab.aiursoft.com/anduin/sleepagent"
 proj_path="src/Anduin.SleepAgent.WebServer/Anduin.SleepAgent.WebServer.csproj"
 
 get_dll_name()

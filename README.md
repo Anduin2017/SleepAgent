@@ -1,9 +1,9 @@
 # Sleep Agent
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/blob/master/LICENSE)
-[![Pipeline stat](https://gitlab.aiursoft.cn/anduin/SleepAgent/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/pipelines)
-[![Test Coverage](https://gitlab.aiursoft.cn/anduin/sleepAgent/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/anduin/SleepAgent/-/pipelines)
-[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/anduin/SleepAgent.svg)](https://gitlab.aiursoft.cn/anduin/sleepAgent/-/commits/master?ref_type=heads)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/blob/master/LICENSE)
+[![Pipeline stat](https://gitlab.aiursoft.com/anduin/SleepAgent/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/pipelines)
+[![Test Coverage](https://gitlab.aiursoft.com/anduin/sleepAgent/badges/master/coverage.svg)](https://gitlab.aiursoft.com/anduin/SleepAgent/-/pipelines)
+[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/anduin/SleepAgent.svg)](https://gitlab.aiursoft.com/anduin/sleepAgent/-/commits/master?ref_type=heads)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fhealth.aiursoft.cn%2F)](https://health.aiursoft.cn)
 [![Docker](https://img.shields.io/docker/pulls/anduin2019/sleepagent.svg)](https://hub.docker.com/r/anduin2019/sleepagent)
 
@@ -28,13 +28,13 @@ The following script will install\update this app on your Ubuntu server. Support
 On your Ubuntu server, run the following command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.cn/anduin/sleepagent/-/raw/master/install.sh | sudo bash
+curl -sL https://gitlab.aiursoft.com/anduin/sleepagent/-/raw/master/install.sh | sudo bash
 ```
 
 Of course it is suggested that append a custom port number to the command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.cn/anduin/sleepagent/-/raw/master/install.sh | sudo bash -s 8080
+curl -sL https://gitlab.aiursoft.com/anduin/sleepagent/-/raw/master/install.sh | sudo bash -s 8080
 ```
 
 It will install the app as a systemd service, and start it automatically. Binary files will be located at `/opt/apps`. Service files will be located at `/etc/systemd/system`.
