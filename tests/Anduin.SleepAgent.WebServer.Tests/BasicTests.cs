@@ -2,7 +2,6 @@
 using System.Text;
 using Aiursoft.CSTools.Tools;
 using Microsoft.Extensions.Hosting;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Aiursoft.WebTools.Extends;
 using Aiursoft.DbTools;
 using Anduin.SleepAgent.WebServer.Data;
@@ -88,7 +87,7 @@ public class BasicTests
         var response = await _http.GetAsync(_endpointUrl + "/api/metrics/query?nick-name=aaaaa");
         response.EnsureSuccessStatusCode(); // Status Code 200-299
         var responseMessage = await response.Content.ReadAsStringAsync();
-        Assert.IsTrue(responseMessage.Contains("aaaaa"));
+        Assert.Contains("aaaaa", responseMessage);
     }
 
 }
