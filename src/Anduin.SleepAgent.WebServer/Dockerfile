@@ -25,7 +25,7 @@ RUN cp -r ${CSPROJ_PATH}/wwwroot/* /app/wwwroot
 
 # ============================
 # Prepare Runtime Environment
-FROM hub.aiursoft.com/aiursoft/internalimages/dotnet
+FROM hub.aiursoft.com/aiursoft/internalimages/dotnetonlyruntime
 ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
@@ -44,11 +44,11 @@ ENV DLL_NAME=${PROJ_NAME}.dll
 #ENTRYPOINT dotnet $DLL_NAME --urls http://*:5000
 ENTRYPOINT ["/bin/bash", "-c", "\
     if [ ! -f \"$VOL_SETTINGS\" ]; then \
-        cp $SRC_SETTINGS $VOL_SETTINGS; \
+    cp $SRC_SETTINGS $VOL_SETTINGS; \
     fi && \
     if [ -f \"$SRC_SETTINGS\" ]; then \
-        rm $SRC_SETTINGS; \
+    rm $SRC_SETTINGS; \
     fi && \
     ln -s $VOL_SETTINGS $SRC_SETTINGS && \
     dotnet $DLL_NAME --urls http://*:5000 \
-"]
+    "]
